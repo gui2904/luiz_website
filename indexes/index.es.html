@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Tax</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+
+    <!-- header -->
+    <header>
+      <div class="container">
+	<div class="logo">
+          <a href="#"><img src="../img/logo.png" alt="Logo" /></a>
+	</div>
+	<nav class="navbar">
+          <ul>
+            <li class="navitem"><a href="#hero">Home</a></li>
+	    <li class="navitem"><a href="#">About</a></li>
+	    <li class="navitem"><a href="#servicos">Services</a></li>
+	    <li class="navitem"><a href="#contact">Contact</a></li>
+	    <li class="navitem"><a href="index.html" id="lang-switcher">Español</a></li>
+	  </ul>
+	</nav>
+      </div>
+    </header>
+
+    <!-- home -->
+    <section class="hero">
+      <div class="container">
+	<div>
+	  <h2><span>Servicios de</span> Contabilidad e <span>Impuestos</span></h2>
+	  <p>Soluciones completas para particulares y empresas con soporte en <span>Português, Español e English.</span></p>
+	  <a href="tel:9543308611" class="cta">📞 954-330-8611</a>
+	</div>
+	<img id="handshake" src="../img/handshake.png">
+      </div>
+    </section>
+
+    <!-- servicos -->
+    <div id="servicos">
+      <section class="section">
+	<div class="services">
+	  <div class="card">
+            <h3>Servicios</h3>
+            <ul>
+              <li>Impuestos personales y comerciale</li>
+              <li>Formación de empresas (corporación o LLC)</li>
+              <li>Solicitud de ITIN</li>
+              <li>Contabilidad mensual</li>
+            </ul>
+	  </div>
+	</div>
+      </section>
+
+      <!-- additional services -->
+      <section class="section">
+	<div class="extra-services">
+	  <div class="card">
+            <h3>Servicios adicionales</h3>
+            <ul>
+              <li>Extensión de visa</li>
+              <li>Licencia de conducir internacional</li>
+              <li>Seguro comercial</li>
+              <li>Traducción de documentos</li>
+              <li>Notario</li>
+            </ul>
+	  </div>
+	</div>
+      </section>
+    </div>
+
+    <!-- contact -->
+    <section id="contact">
+      <div class="container">
+	<form id="contact-form" action="http://localhost:3000/send-email" method="POST">
+
+	  <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name..">
+	  
+	  <label for="email">Email</label>
+	  <input type="email" id="email" name="email" required />
+
+	  <button type="submit">Send</button>
+	  
+	</form>
+      </div>
+    </section>
+
+
+  </body>
+</html> 

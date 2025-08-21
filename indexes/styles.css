@@ -55,6 +55,18 @@ header {
     font-size: 20px;
 }
 
+#lang-switcher {
+    padding: 5px 5px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+#lang-switcher:hover {
+    background-color: #333;
+}
+
 /* hero/home */
 .hero {
     background: linear-gradient(to right, #e0e2e6, #d6d8dc);
