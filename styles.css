@@ -275,7 +275,7 @@ input:checked + .slider:before {
 .language-label {
     font-weight: bold;
     font-size: 20px;
-    color: #ffffff;
+    color: black;
 }
 
 /* =========================
@@ -520,6 +520,12 @@ body.no-scroll {
     #handshake {
         width: 500px;
     }
+
+    .language-label {
+	font-weight: bold;
+	font-size: 20px;
+	color: black;
+    }
 }
 
 /* Mobile */
@@ -539,6 +545,13 @@ body.no-scroll {
 
     .hamburger {
         display: block;     /* show hamburger on mobile */
+    }
+
+
+    .language-label {
+	font-weight: bold;
+	font-size: 20px;
+	color: #ffffff;
     }
 
     /* Hero stacked with grid areas */
