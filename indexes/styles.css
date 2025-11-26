@@ -275,7 +275,7 @@ input:checked + .slider:before {
 .language-label {
     font-weight: bold;
     font-size: 20px;
-    color: #000;
+    color: #ffffff;
 }
 
 /* =========================
@@ -297,8 +297,8 @@ input:checked + .slider:before {
 .about-section h2 {
     font-size: 42px;
     margin-bottom: 20px;
-    color: var(--secondary-color);
-    border-bottom: 3px solid var(--secondary-color);
+    color: #22323A;
+    border-bottom: 3px solid #22323A;
     display: inline-block;
     font-weight: bold;
 }
@@ -329,8 +329,8 @@ input:checked + .slider:before {
 .contact-header h2 {
     font-size: 40px;
     margin-bottom: 8px;
-    color: var(--secondary-color);
-    border-bottom: 3px solid var(--secondary-color);
+    color: #22323A;
+    border-bottom: 3px solid #22323A;
     display: inline-block;
 }
 
@@ -407,6 +407,103 @@ input:checked + .slider:before {
 }
 
 /* =========================
+   HAMBURGER & MOBILE MENU
+   ========================= */
+
+.hamburger {
+    display: none;          /* shown only on mobile via media query */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #22323A;
+    margin: 5px 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* hamburger animation when menu is open */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* fullscreen overlay menu */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, #1f2937 0%, #020617 55%, #020617 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 999;
+}
+
+.mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+}
+
+.mobile-menu-list a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+}
+
+.mobile-menu-list a:hover {
+    color: #ffffff;
+}
+
+.mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #e5e7eb;
+    cursor: pointer;
+}
+
+.mobile-lang {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* =========================
    RESPONSIVE
    ========================= */
 
@@ -430,19 +527,18 @@ input:checked + .slider:before {
 
     /* Header layout */
     header .container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
     }
 
-    .navbar ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-bottom: 10px;
+    .navbar.desktop-nav {
+        display: none;      /* hide desktop menu */
     }
 
-    .navitem {
-        font-size: 16px;
+    .hamburger {
+        display: block;     /* show hamburger on mobile */
     }
 
     /* Hero stacked with grid areas */

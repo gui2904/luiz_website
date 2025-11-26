@@ -1,20 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const langToggle = document.getElementById("lang-toggle");
+  const desktopToggle = document.getElementById("lang-toggle");
+  const mobileToggle  = document.getElementById("lang-toggle-mobile");
 
-  // Detect if we’re on the English page
+  // Are we on the English page?
   const isEnglish = window.location.pathname.includes("index.en.html");
 
-  // Set switch position based on current page
-  langToggle.checked = isEnglish;
-
-  // When toggled, go to the right page
-  langToggle.addEventListener("change", () => {
-    if (langToggle.checked) {
-      // go to English
-      window.location.href = "index.en.html";
-    } else {
-      // go back to Portuguese
-      window.location.href = "index.html";
-    }
+  // Set the initial state of both switches
+  [desktopToggle, mobileToggle].forEach(toggle => {
+    if (toggle) toggle.checked = isEnglish;
   });
+
+  function handleLangChange(event) {
+    const checked = event.target.checked;
+
+    // Keep both toggles visually in sync
+    if (desktopToggle && event.target !== desktopToggle) {
+      desktopToggle.checked = checked;
+    }
+    if (mobileToggle && event.target !== mobileToggle) {
+      mobileToggle.checked = checked;
+    }
+
+    // Redirect to the correct page
+    const target = checked ? "index.en.html" : "index.html";
+    window.location.href = target;
+  }
+
+  // Attach listeners if toggles exist on the page
+  if (desktopToggle) {
+    desktopToggle.addEventListener("change", handleLangChange);
+  }
+  if (mobileToggle) {
+    mobileToggle.addEventListener("change", handleLangChange);
+  }
 });

@@ -1,105 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Essential Tax</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-
-    <!-- header -->
+    <!-- HEADER -->
     <header>
       <div class="container">
-	<div class="logo">
+        <div class="logo">
           <a href="#"><img src="../img/logo.png" alt="Logo" /></a>
-	</div>
-	<nav class="navbar">
+        </div>
+
+        <!-- desktop nav -->
+        <nav class="navbar desktop-nav">
           <ul>
             <li class="navitem"><a href="#hero">Home</a></li>
-	    <li class="navitem"><a href="#">About</a></li>
-	    <li class="navitem"><a href="#servicos">Services</a></li>
-	    <li class="navitem"><a href="#contact">Contact</a></li>
-	    <li class="navitem lang-switch">
-	      <!-- Rounded switch -->
-	      <label class="language-label">PT</label>
-	      <label class="switch">
-		<input type="checkbox" id="lang-toggle">
-		<span class="slider round"></span>
-	      </label>
-	      <label class="language-label">EN</label>
-	    </li>
+            <li class="navitem"><a href="#about">About</a></li>
+            <li class="navitem"><a href="#servicos">Services</a></li>
+            <li class="navitem"><a href="#contact">Contact</a></li>
+            <li class="navitem lang-switch">
+              <label class="language-label">PT</label>
+              <label class="switch">
+                <input type="checkbox" id="lang-toggle" />
+                <span class="slider round"></span>
+              </label>
+              <label class="language-label">EN</label>
+            </li>
+          </ul>
+        </nav>
 
-	  </ul>
-	</nav>
+        <!-- hamburger button (mobile only) -->
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
-    <!-- hero -->
-    <section class="hero">
-      <div class="container">
-	<div>
-	  <h2><span>Accounting and</span> Tax Services</h2>
-	  <p>Complete solutions for individuals and businesses with support in <span>Português, Español e English.</span></p>
-	  <a href="tel:9543308611" class="cta">📞 954-330-8611</a>
-	</div>
-	<img id="handshake" src="../img/handshake.png">
-      </div>
-    </section>
+    <!-- full-screen mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="mobile-close" aria-label="Close menu">&times;</button>
 
-    <!-- servicos -->
-    <div id="servicos">
-      <section class="section">
-	<div class="services">
-	  <div class="card">
-            <h3>Services</h3>
-            <ul>
-              <li>Personal and corporate tax</li>
-              <li>Opening a company (Corp or LLC)</li>
-              <li>ITIN Application</li>
-              <li>Monthly accounting</li>
-            </ul>
-	  </div>
-	</div>
-      </section>
-
-      <!-- additional services -->
-      <section class="section">
-	<div class="extra-services">
-	  <div class="card">
-            <h3>Additional Services</h3>
-            <ul>
-              <li>Visa Extension</li>
-              <li>International Driver's License</li>
-              <li>Business Insurance</li>
-              <li>Document Translation</li>
-              <li>Notary</li>
-            </ul>
-	  </div>
-	</div>
-      </section>
+      <ul class="mobile-menu-list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#servicos">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="mobile-lang">
+          <span class="language-label">PT</span>
+          <label class="switch">
+            <input type="checkbox" id="lang-toggle-mobile" />
+            <span class="slider round"></span>
+          </label>
+          <span class="language-label">EN</span>
+        </li>
+      </ul>
     </div>
 
-    <!-- contact -->
-    <section id="contact">
+    <!-- HERO -->
+    <section class="hero" id="hero">
       <div class="container">
-	<form id="contact-form" action="http://localhost:3000/send-email" method="POST">
+        <div class="hero-text">
+          <h2>
+            <span>Accounting and</span>
+            Tax Services
+          </h2>
+          <p>
+            Complete solutions for individuals and businesses with support in
+            <span>Português, Español and English.</span>
+          </p>
+        </div>
 
-	  <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name..">
-	  
-	  <label for="email">Email</label>
-	  <input type="email" id="email" name="email" required />
+        <img id="handshake" src="../img/handshake.png" alt="Handshake" />
 
-	  <button type="submit">Send</button>
-	  
-	</form>
+        <a href="tel:9543308611" class="cta">📞 954-330-8611</a>
       </div>
     </section>
 
+    <!-- SERVICES -->
+    <section id="servicos">
+      <div class="services-wrapper">
+        <div class="card">
+          <h3>Services</h3>
+          <ul>
+            <li>Personal and corporate tax</li>
+            <li>Company formation (Corp or LLC)</li>
+            <li>ITIN application</li>
+            <li>Monthly bookkeeping</li>
+          </ul>
+        </div>
 
+        <div class="card">
+          <h3>Additional Services</h3>
+          <ul>
+            <li>Visa extension</li>
+            <li>International driver’s license</li>
+            <li>Business insurance</li>
+            <li>Document translation</li>
+            <li>Notary</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+      <div class="container about-container">
+        <h2>About</h2>
+
+        <p>
+          With more than 5 years of experience, we specialize in providing
+          personalized tax preparation, accounting, and business consulting
+          services for individuals and small businesses. Our goal is to simplify
+          your finances so you can focus on what you do best — growing your
+          business.
+          <br /><br />
+          Before founding this firm, I spent years working at a national bank
+          and several accounting firms, gaining extensive experience in
+          financial management, compliance, and strategic planning. This
+          background allows us to offer not only accurate and reliable
+          accounting services, but also practical insights to help clients make
+          informed financial decisions.
+          <br /><br />
+          We are proud to build long-term relationships, provide trustworthy
+          advice, and support our clients in achieving long-term financial
+          success.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <div class="container contact-wrapper">
+        <div class="contact-header">
+          <h2>Contact</h2>
+          <p>Fill out the form below to get in touch with Essential Tax.</p>
+        </div>
+
+        <form
+          id="contact-form"
+          action="http://localhost:3000/send-email"
+          method="POST"
+          class="contact-form"
+        >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your e-mail"
+            required
+          />
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Your message"
+            required
+          ></textarea>
+
+          <button type="submit" class="contact-button">Send message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SCRIPTS -->
     <script src="language.js"></script>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeBtn = document.querySelector(".mobile-close");
+
+      function openMenu() {
+        mobileMenu.classList.add("open");
+        document.body.classList.add("no-scroll");
+        hamburger.classList.add("open");
+        hamburger.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+        hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+
+      hamburger.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+
+      // close when clicking any link in the mobile menu
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    </script>
   </body>
-</html> 
+</html>

@@ -8,33 +8,60 @@
   </head>
 
   <body>
-
-    <!-- header -->
+    <!-- HEADER-->
     <header>
       <div class="container">
 	<div class="logo">
-          <a href="#"><img src="../img/logo.png" alt="Logo" /></a>
+	  <a href="#"><img src="../img/logo.png" alt="Logo" /></a>
 	</div>
-	<nav class="navbar">
-          <ul>
-	    <li class="navitem"><a href="#hero">Home</a></li>
-	    <li class="navitem"><a href="#">About</a></li>
-	    <li class="navitem"><a href="#servicos">Services</a></li>
-	    <li class="navitem"><a href="#contact">Contact</a></li>
-	    <li class="navitem lang-switch">
-	      <!-- Rounded switch -->
-	      <label class="language-label">PT</label>
-	      <label class="switch">
+
+	<!-- desktop nav -->
+	<nav class="navbar desktop-nav">
+	  <ul>
+            <li class="navitem"><a href="#hero">Home</a></li>
+            <li class="navitem"><a href="#about">About</a></li>
+            <li class="navitem"><a href="#servicos">Services</a></li>
+            <li class="navitem"><a href="#contact">Contact</a></li>
+            <li class="navitem lang-switch">
+              <label class="language-label">PT</label>
+              <label class="switch">
 		<input type="checkbox" id="lang-toggle">
 		<span class="slider round"></span>
-	      </label>
-	      <label class="language-label">EN</label>
-	    </li>
-
+              </label>
+              <label class="language-label">EN</label>
+            </li>
 	  </ul>
 	</nav>
+
+	<!-- hamburger button (mobile only) -->
+	<button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+	  <span></span>
+	  <span></span>
+	  <span></span>
+	</button>
       </div>
     </header>
+
+    <!-- full-screen mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="mobile-close" aria-label="Fechar menu">&times;</button>
+
+      <ul class="mobile-menu-list">
+	<li><a href="#hero">Home</a></li>
+	<li><a href="#about">About</a></li>
+	<li><a href="#servicos">Services</a></li>
+	<li><a href="#contact">Contact</a></li>
+	<li class="mobile-lang">
+	  <span class="language-label">PT</span>
+	  <label class="switch">
+            <input type="checkbox" id="lang-toggle-mobile">
+            <span class="slider round"></span>
+	  </label>
+	  <span class="language-label">EN</span>
+	</li>
+      </ul>
+    </div>
+
 
     <!-- home -->
     <section class="hero" id="hero">
@@ -137,5 +164,33 @@
 
 
     <script src="language.js"></script>
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeBtn = document.querySelector('.mobile-close');
+
+      function openMenu() {
+	  mobileMenu.classList.add('open');
+	  document.body.classList.add('no-scroll');
+	  hamburger.classList.add('open');              // 🔹 animate lines
+	  hamburger.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+	  mobileMenu.classList.remove('open');
+	  document.body.classList.remove('no-scroll');
+	  hamburger.classList.remove('open');           // 🔹 reset lines
+	  hamburger.setAttribute('aria-expanded', 'false');
+      }
+
+      hamburger.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+
+      // close when clicking any link in the mobile menu
+      mobileMenu.querySelectorAll('a').forEach(link => {
+	  link.addEventListener('click', closeMenu);
+      });
+    </script>
+
   </body>
 </html> 
