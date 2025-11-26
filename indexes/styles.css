@@ -86,8 +86,23 @@ header {
     padding: 80px 20px;
 }
 
+/* use GRID so desktop & mobile can have different order */
 .hero .container {
-    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-areas:
+        "text image"
+        "button image";
+    column-gap: 40px;
+    align-items: center;
+}
+
+.hero-text {
+    grid-area: text;
+    max-width: 540px;
+    text-align: left;
 }
 
 .hero h2 {
@@ -104,11 +119,13 @@ header {
 .hero p {
     font-size: 28px;
     color: #555;
-    margin: 0 auto 30px;
+    margin: 0 0 30px;
     text-align: left;
 }
 
 .hero .cta {
+    grid-area: button;
+    justify-self: flex-start;
     display: inline-block;
     background: #1d3a5f;
     color: white;
@@ -117,7 +134,6 @@ header {
     font-size: 18px;
     text-decoration: none;
     transition: background 0.3s ease;
-    float: left;
 }
 
 .hero .cta:hover {
@@ -125,6 +141,7 @@ header {
 }
 
 #handshake {
+    grid-area: image;
     height: auto;
     width: 700px;
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0 50%);
@@ -147,7 +164,6 @@ header {
     width: 100%;
     background: linear-gradient(to right, #f0f2f5, #e5e7eb);
     padding: 80px 0;
-
     display: flex;
     justify-content: center;
 }
@@ -155,7 +171,6 @@ header {
 .services-wrapper {
     width: 100%;
     max-width: 1100px;
-
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -168,10 +183,8 @@ header {
     padding: 28px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-
     flex: 0 1 420px;
     min-height: 260px;
-
     display: flex;
     flex-direction: column;
 }
@@ -202,7 +215,6 @@ header {
    LANGUAGE SWITCH
    ========================= */
 
-/* The switch - the box around the slider */
 .switch {
     position: relative;
     display: inline-block;
@@ -211,14 +223,12 @@ header {
     vertical-align: middle;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -435,16 +445,26 @@ input:checked + .slider:before {
         font-size: 16px;
     }
 
-    /* Hero stacked */
+    /* Hero stacked with grid areas */
     .hero {
         padding: 60px 15px;
     }
 
     .hero .container {
-        flex-direction: column;
-        align-items: center;
+        width: 90%;
+        margin: auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "text"
+            "image"
+            "button";
+        row-gap: 24px;
+        justify-items: center;
         text-align: center;
-        gap: 24px;
+    }
+
+    .hero-text {
+        text-align: center;
     }
 
     .hero h2 {
@@ -454,7 +474,7 @@ input:checked + .slider:before {
     }
 
     .hero span {
-        display: inline; /* evita quebra exagerada em telas pequenas */
+        display: inline;
     }
 
     .hero p {
@@ -463,15 +483,14 @@ input:checked + .slider:before {
         margin-bottom: 20px;
     }
 
-    .hero .cta {
-        float: none;
-        margin: 0 auto;
-    }
-
     #handshake {
-	order: 2;
         width: 100%;
         max-width: 340px;
+        margin-bottom: 10px;
+    }
+
+    .hero .cta {
+        justify-self: center;
     }
 
     /* Services stacked */
