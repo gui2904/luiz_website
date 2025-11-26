@@ -7,11 +7,11 @@
 /* colors */
 :root {
     --primary-color: #bec3c7;
-    --secondary-color: #22323A;
+    --secondary-color: gray;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: arial, sans-serif;
 }
 
 header {
@@ -86,7 +86,7 @@ header {
 }
 
 .hero span {
-  display: block;
+    display: block;
 }
 
 .hero p {
@@ -139,7 +139,8 @@ header {
     max-width: 1000px;
 }
 
-.services, .extra-services {
+.services,
+.extra-services {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -186,4 +187,216 @@ header {
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+}
+
+input:checked + .slider {
+    background-color: grey;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px grey;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.language-label {
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #f4f5f7, #e5e7eb);
+}
+
+.contact-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 800px;
+}
+
+.contact-header h2 {
+    font-size: 40px;
+    margin-bottom: 8px;
+    color: #1d3a5f;
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+}
+
+.contact-header p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form layout */
+.contact-form {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background-color 0.2s ease,
+                transform 0.1s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #9ca3af;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #1d3a5f;
+    box-shadow: 0 0 0 2px rgba(29, 58, 95, 0.15);
+    background-color: #f9fafb;
+}
+
+/* Button */
+.contact-button {
+    margin-top: 10px;
+    align-self: center;
+    padding: 12px 36px;
+    border-radius: 999px;
+    border: none;
+    background: #1d3a5f;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(29, 58, 95, 0.4);
+    transition: background 0.2s ease,
+                transform 0.1s ease,
+                box-shadow 0.2s ease;
+}
+
+.contact-button:hover {
+    background: #264d7a;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(29, 58, 95, 0.45);
+}
+
+.contact-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(29, 58, 95, 0.3);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .contact-wrapper {
+        width: 100%;
+    }
+
+    .contact-header h2 {
+        font-size: 32px;
+    }
+}
+
+/* ABOUT SECTION */
+.about-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.about-container {
+    flex-direction: column;
+    max-width: 900px;
+    align-items: flex-start;
+}
+
+.about-section h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #1d3a5f;
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+    font-weight: bold;
+}
+
+.about-section p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #444;
+    max-width: 800px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-section h2 {
+        font-size: 32px;
+    }
+
+    .about-section p {
+        font-size: 18px;
+    }
 }
